@@ -22,7 +22,6 @@ function draw(){
 	background(0, 100, 255); //fonctionne comme le fill();
 	construct(lvl);
 	j.update();
-	kongregate.stats.submit('Levels done', lvl);
 
 	switch(lvl){
 	case 0:

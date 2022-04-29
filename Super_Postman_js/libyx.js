@@ -95,7 +95,7 @@ function text(t, x, y, f) {
 function newImage(src){
 	let imageReturned = new Image();
 	//imageReturned.crossOrigin = "anonymous";
-	imageReturned.src = "Super_Postman_js/"+src;
+	imageReturned.src = src;
 	return imageReturned;
 }
 function drawImage(i, x, y, s1, s2, r, mid){ //s1 et s2 le nombre de fois qu'on multiplie la largeur ou la hauteur, r pour la rotation (rad), mid = true => on dessine du milieu

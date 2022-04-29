@@ -198,9 +198,6 @@ function draw(){
   				timer = 0; 
   				state = "gameover";
   				str[2] = "In this nightmare, I survived "+nbWave+" waves and killed about "+kills+" flames.";
-  				kongregate.stats.submit('Waves survived', nbWave);
-  				kongregate.stats.submit('kills', kills);
-  				kongregate.stats.submit('Pistol got', j.pistol);
   			}
   		}
 
