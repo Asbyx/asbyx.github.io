@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogNightmare</title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <canvas id="canvas"></canvas>
+
+    <script src='https://cdn1.kongregate.com/javascripts/kongregate_api.js'></script>
+    <script>
+        kongregateAPI.loadAPI(function(){
+            window.kongregate = kongregateAPI.getAPI();
+            // You can now access the Kongregate API with:
+            // kongregate.services.getUsername(), etc
+            // Proceed with loading your game...
+        });
+    </script>
+    <script src="libyx.js"></script>
+    <script src="Player.js"></script>
+    <script src="Eau.js"></script>
+    <script src="Flames.js"></script>
+    <script>kongregateAPI.loadAPI()</script>
+    <script src="main.js"></script> <!-- main en dernier -->
+
+  </head>
+</html>
