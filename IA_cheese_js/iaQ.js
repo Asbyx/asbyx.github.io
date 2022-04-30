@@ -73,8 +73,8 @@ function IA(){
 	this.exploRate = 1;
 
 	this.pick = function(){
-		this.exploRate -= 0.00005;
-		if(this.exploRate <= 0 && this.exploRate >= -0.00005) log("Number of attempts to find the optimal path :" + attempt);
+		this.exploRate -= 0.0005;
+		if(this.exploRate <= 0 && this.exploRate >= -0.0005) log("Number of attempts to find the optimal path :" + attempt);
 		if(Math.random() < this.exploRate){
 			return random(0, 4, true);
 		} else{

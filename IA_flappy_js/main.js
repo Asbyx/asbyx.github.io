@@ -1,7 +1,7 @@
 newCanvas(400, 400);
 var allImagesLoaded = true; //true si pas d'images.
 
-textSize = 10;
+textSize(10);
 //var
 var score = highscore = 0;
 
