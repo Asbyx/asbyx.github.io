@@ -19,7 +19,7 @@ function draw(){
 	requestAnimationFrame(draw);
 	background(127); //fonctionne comme le fill();
 	clear();
-	textSize = 16;
+	textSize(16);
 	text("Nombre de games jouées: "+games, 3, 16);
 
 	switch(state){
@@ -27,6 +27,7 @@ function draw(){
 			nbAl = 12;
 			player = 1;
 			state = "train";
+			ai[1].exploRate = 1;
 			break;
 
 		case"initTest":
@@ -114,13 +115,13 @@ function IA (){
 }
 
 function isKeyPressed (key){
-	if(key == "Space"){
-		if(state == "pause") state = "initTrain"; else state = "pause";
+	if(key === "Space"){
+		if(state === "pause") state = "initTrain"; else state = "pause";
 	}
-	if(key == "Enter"){
+	if(key === "Enter"){
 		state = "initTest";
 	}
-	if(state == "test" && key <= 3){
+	if(state === "test" && key <= 3){
 		nbAl -= key;
 		if(nbAl <= 0){
 			perdu();
@@ -130,7 +131,6 @@ function isKeyPressed (key){
 
 function perdu(){
 	games++;
-	//log(player+" a perdu.");
 	nbAl = 12;
 	player = Math.round(Math.random()*(1.5) + 1);
 }
