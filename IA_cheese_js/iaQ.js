@@ -16,7 +16,6 @@ var tabl = [ //objectif: 5 || obstacle: --5
 ];
 var attempt = x = 0;
 var y = 0;
-var actions = [1, 2, 3, 4];
 
 var ai = new IA();
 //--------------------------- 
@@ -32,14 +31,14 @@ function draw(){
 
 	fill(0);
 
-	rectCenter = "milieu";
+	rectCenter("C");
 	for(var i = 0; i < tabl.length; i++){
 		for (var j = 0; j < tabl[i].length; j++) {
-			if(tabl[i][j] == 5){
+			if(tabl[i][j] === 5){
 				fill(0, 255, 0);
 				rect(5 + j*(30), 5 + i*30, 5, 5);
 			}
-			if(tabl[i][j] == -5){
+			if(tabl[i][j] === -5){
 				fill(255, 0, 0);
 				rect(5 + j*(30), 5 + i*30, 5, 5);
 			}
@@ -49,10 +48,10 @@ function draw(){
 	circle(5 + x * 30, 5 + y * 30, 5);
 	let s = y * 10 + x;
 	let a = ai.pick();
-	if(a == 0) x++;
-	if(a == 1) x--;
-	if(a == 2) y++;
-	if(a == 3) y--;
+	if(a === 0) x++;
+	if(a === 1) x--;
+	if(a === 2) y++;
+	if(a === 3) y--;
 	ai.think(s, a);
 
 
