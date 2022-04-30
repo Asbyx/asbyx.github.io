@@ -4,7 +4,7 @@ function Point (){
 
 	this.show = function(){
 		fill(0, 255, 0);
-		rectCenter = "milieu";
+		rectCenter("C");
 		rect(this.x, this.y, 8, 16);
 	}
 }

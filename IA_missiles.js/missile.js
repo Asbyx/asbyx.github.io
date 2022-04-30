@@ -6,11 +6,11 @@ function Missile() {
 	this.x = 10; 
 	this.y = this.yReached = height - 7.5; //dessiner selon le milieu
 	this.r = -Math.PI/2;
-	this.v = new Vecteur(0, 0);
+	this.v = new Vector(0, 0);
 	this.timeAlive = 0;
 	this.energySpend = 0;
 
-	this.brain = new NeuralByx (6, 2, 25, 3);
+	this.brain = new NeuralByx(6, 2, 10, 3);
 
 	this.show = function(){
 		this.timeAlive ++;
@@ -25,15 +25,15 @@ function Missile() {
 		//fin de vie
 		if(this.y + (Math.sin(this.r)*img.height-2) < 0 || this.x + (Math.cos(this.r)*img.height-1) < 0 || this.y + (Math.sin(this.r)*img.height-2) > height || this.x + (Math.cos(this.r)*img.height-1) > width || this.timeAlive > 300){ //à 500 d'itérations on stop
 			this.isAlive = false;
-			this.score = 2*(height - this.yReached) - this.energySpend/2 - 4*dist(this.x, this.y, P.x, P.y);
+			this.score = 2*(height - this.yReached) - this.energySpend/2 - 8*dist(this.x, this.y, P.x, P.y);
 		}
 	}
 
 	this.thruster = function(){
-		if(this.v.norme() == 0){
+		if(this.v.magnitude() == 0){
 			this.v.x = this.v.y = 1;
-			this.v.rotate(this.r);
-			this.v.setNorme(0.5);
+			this.v.setAngle(this.r);
+			this.v.setMagnitude(0.5);
 		} else {
 			this.v.x += Math.cos(this.r) * 0.2;
 			this.v.y += Math.sin(this.r) * 0.2;
