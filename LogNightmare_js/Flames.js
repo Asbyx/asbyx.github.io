@@ -9,7 +9,7 @@ function Flame (){
 	this.show = function(){
 		drawImage(imgFlame, this.x, this.y, this.pv/100, this.pv/100, this.direction, true);
 		
-		this.v = new Vector(j.x - this.x, j.y - this.y);
+		this.v = new Vector(j.x - this.x, j.y - j.img.height/2 - this.y);
 		this.v.setMagnitude(3);
 
 		this.delta = new Vector(Math.random()*2, Math.random()*2);

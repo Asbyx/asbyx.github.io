@@ -52,7 +52,7 @@ var lance = newImage("img/lanceFlammes.png");
 var openShop = newImage("img/openShop.png");
 var closedShop = newImage("img/closedShop.png");
 closedShop.onload = () => {
-	run(draw, 60);
+	run(draw, 100);
 }
 var taille = 10;
 //---------------------------
@@ -210,9 +210,9 @@ function draw(){
 
   		fill(0);
   		textSize(75);
-  		text("Shop", width/2 - textSize, height/10);
+  		text("Shop", width/2 - 75, height/10);
   		textSize(25);
-  		text(j.gold + " $", width - 100 - textSize, height/8);
+  		text(j.gold + " $", width - 100 - 25, height/8);
   		textSize(16);
   		text("Escape to go out", 0, height - 14);
 
