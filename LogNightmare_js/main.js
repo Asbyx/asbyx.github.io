@@ -52,7 +52,7 @@ var lance = newImage("img/lanceFlammes.png");
 var openShop = newImage("img/openShop.png");
 var closedShop = newImage("img/closedShop.png");
 closedShop.onload = () => {
-	run(draw, 144);
+	run(draw, 60);
 }
 var taille = 10;
 //---------------------------
