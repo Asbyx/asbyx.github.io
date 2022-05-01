@@ -3,16 +3,16 @@ function Flame (){
 	this.y = 65;
 	this.pv;
 	this.direction = 0;
-	this.v = new Vecteur(0, 0);
+	this.v = new Vector(0, 0);
 	this.deathCounted = false;
 
 	this.show = function(){
 		drawImage(imgFlame, this.x, this.y, this.pv/100, this.pv/100, this.direction, true);
 		
-		this.v = new Vecteur(j.x - this.x, j.y - this.y);
-		this.v.setNorme(3);
+		this.v = new Vector(j.x - this.x, j.y - this.y);
+		this.v.setMagnitude(3);
 
-		this.delta = new Vecteur(Math.random()*2, Math.random()*2);
+		this.delta = new Vector(Math.random()*2, Math.random()*2);
 		if (this.delta.x > 1) this.delta.x *= -1;
 		if (this.delta.y > 1) this.delta.y *= -1;
 

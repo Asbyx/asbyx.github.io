@@ -51,15 +51,16 @@ var platforme = newImage("img/platform.png");
 var lance = newImage("img/lanceFlammes.png");
 var openShop = newImage("img/openShop.png");
 var closedShop = newImage("img/closedShop.png");
-closedShop.onload = allImagesLoaded = true;
+closedShop.onload = () => {
+	run(draw, 144);
+}
 var taille = 10;
 //---------------------------
 //-------------------------------------
-if (allImagesLoaded) draw();
 
 
 function draw(){
-	requestAnimationFrame(draw);
+	clear();
 	background(bkg, 0, 0);
 
 	timer ++;
@@ -68,14 +69,14 @@ function draw(){
     case"menu":
     timer++;
   		fill(0);
-  		textSize = 15;
+  		textSize(15);
   		text("Use the arrow keys to move (or zqsd)", 0, height-75);
   		text("Spacebar to shoot", 0, height-50);
   		text("Shift to enter the shop", 0, height-25);
-  		textSize = 30;
+  		textSize(30);
   		text("Fall asleep", width/2, height - height/3+10);
   		text("Credits / Options", width/2, height - height/6+10);
-  		textSize = 64;
+  		textSize(64);
   		text("LOG NIGHTMARE", 225, height/6);
   		if(yOnMenu == 1){
   			drawImage(wood[1], width/2 - wood[1].width*taille/2 - 10, height - height/3 - 15, taille/2, taille/2);
@@ -94,10 +95,10 @@ function draw(){
 
   	case "credits":
   		timer ++;
-  		textSize = 30;
+  		textSize(30);
   		fill(0);
   		text("Menu", width/2, height - height/3+10 - 250);
-  		textSize = 20;
+  		textSize(20);
   		text("Concept, programmation, graphism, etc...", width/2 - 200, height - height/3+10);
   		text("Asbyx", width/2 - 50, height - height/3+10 + 20, "bold Arial");
   		text("^_^ Thanks for playing ! ^_^", width/2 - 150, height - height/3+100);
@@ -146,7 +147,7 @@ function draw(){
       	drawImage(lance, width-lance.width*taille, 50, taille, taille, Math.PI);
       	if(isShopOpen === false) drawImage(closedShop, width-250, height-150, taille, taille); else drawImage(openShop, width-250, height-150, taille, taille);
   		fill(0);
-  		textSize = 16;
+  		textSize(16);
   		text(j.gold + " $", width - 60, 15);
 
       	j.show();
@@ -208,19 +209,19 @@ function draw(){
   		background(0, 80, 0);
 
   		fill(0);
-  		textSize = 75;
+  		textSize(75);
   		text("Shop", width/2 - textSize, height/10);
-  		textSize = 25;
+  		textSize(25);
   		text(j.gold + " $", width - 100 - textSize, height/8);
-  		textSize = 16;
+  		textSize(16);
   		text("Escape to go out", 0, height - 14);
 
   		fill(0, 150, 0);
-  		textSize = 32;
+  		textSize(32);
   		for (var i = 0; i < 3; i++) {
   			for (var k = 0; k < 2; k++) {
   				rect(100 + 300*i, 150 + 300*k, 200, 150);
-  				text(prize[i+k*3+1] +" $", 150 + 300*i + textSize, 350 + 300*k);
+  				text(prize[i+k*3+1] +" $", 150 + 300*i + 32, 350 + 300*k);
   			}
   		}
   		if(!pistol1IsSell)drawImage(pistol1, 200, 225, taille, taille, 0, true);
@@ -284,7 +285,7 @@ function draw(){
   		timer+=0.005;
   		drawImage(end, width/2, height/2, taille, taille, 0, true);
   		fill(255);
-  		textSize = 16;
+  		textSize(16);
   		if(timer < str[0].length){
   			for (var i = 0; i < timer; i++) {
   				text(str[0][i], 10 + 8.75*i, 20, "Monospace");
@@ -307,7 +308,7 @@ function draw(){
   			for (var i = 0; i < timer - str[2].length - str[1].length - str[0].length - 200; i++) {
   				text(str[3][i], 10 + 8.75*i, 80, "Monospace");
   			}
-  		} else if(timer > str[3].length + str[2].length + str[1].length + str[0].length + 200){text(str[3], 10, 80, "Monospace"); textSize = 10; text("Shift to return to the menu", 5, 695)};
+  		} else if(timer > str[3].length + str[2].length + str[1].length + str[0].length + 200){text(str[3], 10, 80, "Monospace"); textSize(10); text("Shift to return to the menu", 5, 695)};
 
   		if (timer > 200 && isKeyDown("Shift")) {state = "menu"; bkg = 175;}
   		break;
@@ -316,7 +317,7 @@ function draw(){
     case "pause":
       timerPause ++;
       background(0, 0, 0);
-      textSize = 32;
+      textSize(32);
       fill(127);
       text("Pause", 50, 50);
       text("Wave in progress : "+nbWave, 50, 75);
