@@ -2,7 +2,7 @@ function Lettre(x, y, v) {
 	this.x = x;
 	this.y = y;
 	this.v = v;
-	this.v.setNorme(5);
+	this.v.setMagnitude(5);
 	this.img = newImage("img/Player/letter.png");
 
 
@@ -35,7 +35,7 @@ function Lettre(x, y, v) {
 		this.x += this.v.x;
 		this.y += this.v.y;
 		this.v.y += 0.05;
-		this.v.setNorme(5);		
+		this.v.setMagnitude(5);		
 		drawImage(this.img, this.x, this.y, taille, taille, this.v.angle(), true);
 		//si la lettre sort des length de lvls[lvl], lose
 		//log("Place in table: lvls["+lvl+"]["+Math.round((this.y - camy)/16/taille)+"]["+Math.round((this.x - camx)/16/taille)+"]");

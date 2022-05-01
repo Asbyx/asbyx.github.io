@@ -2,8 +2,8 @@ function Confettis(x, y) {
 	this.x = x;
 	this.y = y;
 	this.col = Math.round(Math.random()*(8));
-	this.v = new Vecteur(Math.random()*(16)-8, -5);
-	this.v.setNorme(2);	
+	this.v = new Vector(Math.random()*(16)-8, -5);
+	this.v.setMagnitude(2);	
 	this.timer = 0;
 
 	this.show = function(){
@@ -11,7 +11,7 @@ function Confettis(x, y) {
 		this.x += this.v.x;
 		this.y += this.v.y;
 		this.v.y += 0.2;
-		this.v.setNorme(2);	
+		this.v.setMagnitude(2);	
 
 		this.getCol();
 		rect(this.x, this.y, 4, 4);

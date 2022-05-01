@@ -41,7 +41,7 @@ function Player(x, y){
 	this.direc = "right";
 	this.inertie = 0;
 
-	this.f = new Vecteur (5, 0);
+	this.f = new Vector(5, 0);
 	
 	this.isTir = false;
 	this.timerTir = 0;
@@ -58,8 +58,8 @@ function Player(x, y){
 			let Nimg = this.NImg;
 			this.show();
 			
-			if(isKeyDown("Up")) this.f.rotate(this.f.angle() - Math.PI/64);
-			if(isKeyDown("Down")) this.f.rotate(this.f.angle() + Math.PI/64);
+			if(isKeyDown("Up")) this.f.setAngle(this.f.angle() - Math.PI/64);
+			if(isKeyDown("Down")) this.f.setAngle(this.f.angle() + Math.PI/64);
 
 			fill(127, 0, 0);
 			if(this.direc == "right") line(this.x+15, this.y+14, this.x + 15 + this.f.x*12, this.y + 14 + this.f.y*12);

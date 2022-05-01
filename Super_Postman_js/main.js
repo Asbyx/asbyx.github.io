@@ -13,11 +13,9 @@ var j = 0; //mettre à cette valeur pour permettre l'initialisation du joueur da
 //--------------------------- 
 
 // /!\  NE PAS OUBLIER allImagesLoaded = true DANS LE DERNIER ONLOAD /!\
-anim[0][0].onload = allImagesLoaded = true;
-if (allImagesLoaded) draw();
+anim[0][0].onload = () => run(draw, 100);
 
 function draw(){
-	requestAnimationFrame(draw);
 	clear();
 	background(0, 100, 255); //fonctionne comme le fill();
 	construct(lvl);
@@ -26,7 +24,7 @@ function draw(){
 	switch(lvl){
 	case 0:
 		fill(0);
-		textSize = 16;
+		textSize(16);
 		text("ZQSD or WASD to move", camx + 50, 200);
 		text("This is a rebouncer :)", camx + 400, 375);
 		text("Your goal is to send the letter ind the mailbox", camx + 50, 50);
@@ -35,41 +33,41 @@ function draw(){
 
 	case 5:
 		fill(0);
-		textSize = 10;
+		textSize(10);
 		text("Most difficult jump =)", camx + 290, 150);
 		break;
 
 	case 6:
 		fill(0);
-		textSize = 10;
+		textSize(10);
 		text("R to reset :)", camx + 260, 150);
 		break;
 
 	case 10:
 		fill(0);
-		textSize = 10;
+		textSize(10);
 		text("Try to do a short jump by pressing against the block", camx + 1025, 400);
 		text("to avoid the rebouncer, it will be easier =)", camx + 1025, 415);
 		break;
 
 	case 14:
 		fill(0);
-		textSize = 10;
+		textSize(10);
 		text("Good luck, even I have to tryhard to complete this level :)", camx, height - 10);
 		break;
 
 	case 15:
 		fill(0);
-		textSize = 13;
+		textSize(13);
 		text("Last level ! =P", camx, 13);
 		break;
 
 	case 16:
 		fill(0);
-		textSize = 16;
-		text("THANKS FOR PLAYING !", camx + width/2 - 112, 100);
-		text("I hope you had some fun =)", camx + 285, 125);
-		textSize = 13;
+		textSize(16);
+		text("THANK YOU FOR PLAYING !", camx + width/2 - 112, 100);
+		text("I hope you had some fun, I know I did =)", camx + 285, 125);
+		textSize(13);
 		break;
 	}
 }
