@@ -73,7 +73,7 @@ function draw(){
 	line(100, 0, 100, 300);
 	line(200, 0, 200, 300);
 		fill(0);
-		rectCenter = "milieu";
+		rectCenter("C");
 		drawCase(g[1], 0, 2);
 		drawCase(g[2], 1, 2);
 		drawCase(g[3], 2, 2);
@@ -98,7 +98,7 @@ function draw(){
 	line(100, 0, 100, 300);
 	line(200, 0, 200, 300);
 		fill(0);
-		rectCenter = "milieu";
+		rectCenter("C");
 		drawCase(g[1], 0, 2);
 		drawCase(g[2], 1, 2);
 		drawCase(g[3], 2, 2);
@@ -129,7 +129,7 @@ function draw(){
 	line(100, 0, 100, 300);
 	line(200, 0, 200, 300);
 		fill(0);
-		rectCenter = "milieu";
+		rectCenter("C");
 		drawCase(g[1], 0, 2);
 		drawCase(g[2], 1, 2);
 		drawCase(g[3], 2, 2);
