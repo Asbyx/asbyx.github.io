@@ -2,19 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Asbyx profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi dispiace amore :(</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .text-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 1.5rem;
+            user-select: none;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+                opacity: 0.6;
+            }
+        }
+
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .audio-controls button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ff6b6b;
+            padding: 5px;
+        }
+
+        .audio-controls button:hover {
+            color: #ff4757;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my github page !</h1>
-    <h2>My personal projects: </h2>
-    <a href="IA_allumettes_js/index.html">IA on a stick game</a>
-    <a href="IA_billes_js/index.html">IA on a peg solitaire</a>
-    <a href="IA_cheese_js/index.html">Toy example of Q-learning</a>
-    <a href="IA_flappy_js/index.html">IA on a flappy-bird-like game</a>
-    <a href="IA_missiles.js/index.html">IA which guide a ground-ground missile</a>
-    <a href="IA_morpion_js/index.html">IA on a Tic-Tac-Toe game</a>
-    <a href="LogNightmare_js/index.html">Log Nightmare (game)</a>
-    <a href="perceptron_js/index.html">Toy example of a perceptron</a>
-    <a href="Super_Postman_js/index.html">Super Postman (game)</a>
+    <div class="container">
+        <h1>Mi dispiace amore :(</h1>
+        
+        <div class="text-content">
+            <p>Roman s'excuse et dit qu'il ne s'en est pas rendu compte, et qu'il ne recommencera plus.</p>
+            <p>Je suis désolé que tu sois soulée et que ça a ruiné ta journée et ton mood<br>:(</p>
+            <p>J'espère quand même qu'on cuisinera tous les deux ce soir</p>
+            <p>Je suis juste à côté, je t'attends dans la tristesse</p>
+            <p>Je t'aime ❤️</p>
+        </div>
+    </div>
+
+    <div class="audio-controls">
+        <button id="playPause">▶️</button>
+        <span>Musique triste</span>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="./assets/sad.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Hearts generation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = Math.random() < 0.5 ? '❤️' : '💔';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            document.body.appendChild(heart);
+
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 500);
+
+        // Audio controls
+        const audio = document.getElementById('bgMusic');
+        const playPauseBtn = document.getElementById('playPause');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playPauseBtn.textContent = '▶️';
+            } else {
+                audio.play();
+                playPauseBtn.textContent = '⏸️';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
 </body>
-</html>
+</html> 
