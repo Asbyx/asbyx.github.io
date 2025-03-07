@@ -137,6 +137,7 @@
         // Audio controls
         const audio = document.getElementById('bgMusic');
         const playPauseBtn = document.getElementById('playPause');
+        let isPlaying = false;
 
         playPauseBtn.addEventListener('click', () => {
             if (isPlaying) {
