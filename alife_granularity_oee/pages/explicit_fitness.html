@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicit Fitness - Alife Granularity</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="group-page-container">
+        <header class="group-header">
+            <a href="../index.html" class="home-link">&#8592; Home</a>
+            <h1>Very Complex Components, Explicit Fitness</h1>
+        </header>
+
+        <div class="scroll-sections-wrapper">
+            <section class="scroll-section" id="section-intro">
+                <h2>Quick Introduction</h2>
+                <p>Genotype directly defines fitness. Least open-ended.</p>
+                <ul class="keywords-list">
+                    <li>Genetic Algorithms</li>
+                    <li>Direct Fitness Mapping</li>
+                    <li>Optimization</li>
+                    <li>Limited Search Space</li>
+                </ul>
+            </section>
+
+            <section class="scroll-section" id="section-flappy">
+                <h2>Example: Flappy Bird AI</h2>
+                <a href="../../IA_flappy_js/index.html" class="simulation-link">Flappy Bird AI Simulation (JS)</a>
+                <p><em>A classic example of a genetic algorithm optimizing a simple task.</em></p>
+            </section>
+
+            <section class="scroll-section" id="section-acrobats">
+                <h2>Example: Acrobats</h2>
+                <a href="../../IA_accrobate_js/index.html" class="simulation-link">Acrobats Simulation (JS)</a>
+                <p><em>Genetic algorithms evolving controller for physical movement.</em></p>
+            </section>
+
+            <section class="scroll-section" id="section-water-movement">
+                <h2>Example: Movements in Water</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/gVEWaOtEASM?si=bH14QUZqoNsv2wOq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- <iframe class="youtube-embed" width="560" height="315" src="https://www.youtube.com/embed/gVEWaOtEASM?si=bH14QUZqoNsv2wOq&start=556&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                <p><em>Artistic evolution of movement.</em></p>
+            </section>
+
+            <section class="scroll-section" id="section-nasa-antenna">
+                <h2>Example: NASA ST5 Antenna</h2>
+                <p>Genetic algorithms were used by NASA to find the optimal shape for an antenna for the Space Technology 5 (ST5) mission. <a href="https://en.wikipedia.org/wiki/Evolved_antenna" target="_blank">Learn more on Wikipedia</a>.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/St_5-xband-antenna.jpg" alt="ST5 Evolved Antenna" style="margin-top:10px; border-radius:5px; max-width: 60%;">
+            </section>
+
+            <section class="scroll-section" id="section-oee-link">
+                <h2>Link with Open-Ended Evolution</h2>
+                <p>By design, true open-endedness is generally impossible here due to:</p>
+                <ul>
+                    <li>An explicit fitness function narrowing the search.</li>
+                    <li>Often very limited search space for DNA/genotypes.</li>
+                    <li>Diversity is not inherently increasing; it converges towards an objective.</li>
+                    <li>Major breakthroughs are difficult once a local optimum is achieved.</li>
+                </ul>
+                <p>However, these models are valuable for studying what *not* to do for OEE and for developing metrics to measure it.</p>
+            </section>
+        </div>
+        <div class="scroll-indicator">&#8595;</div>
+    </div>
+    <script src="../js/group-navigation.js"></script>
+</body>
+</html> 
