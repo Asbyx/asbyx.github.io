@@ -117,7 +117,7 @@ function updateInspectorButtonAndInfoText(isFinishedDisplay) {
 
     if (currentInspectIndex >= generationToInspectData.length) { // Should only happen when exiting
         inspectBtn.textContent = "Inspect Generation";
-        inspectorInfoDiv.innerHTML = "Inspection finished. Resuming normal simulation.";
+        inspectorInfoDiv.innerHTML = "Inspection finished. Restart simulation.";
         return;
     }
 
@@ -136,7 +136,7 @@ function updateInspectorButtonAndInfoText(isFinishedDisplay) {
         if (displayIndex < generationToInspectData.length) {
             inspectBtn.textContent = `Run Next Acrobat (${displayIndex + 1}/${generationToInspectData.length})`;
         } else {
-            inspectBtn.textContent = "Resume Simulation";
+            inspectBtn.textContent = "Restart Simulation";
         }
     } else { // Acrobat is about to run or is running
         inspectorInfoDiv.innerHTML = `Now Running: Acrobat ${displayIndex}/${generationToInspectData.length}<br>(Original Score: ${acrobatData.score.toFixed(2)})`;
