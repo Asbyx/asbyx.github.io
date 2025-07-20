@@ -1,0 +1,108 @@
+{
+    "name": "Duel d'Arcane",
+    "short_name": "Duel Arcane",
+    "description": "Un jeu de cartes stratégique pour deux joueurs via Bluetooth",
+    "start_url": "/dual/",
+    "display": "standalone",
+    "background_color": "#1a1a2e",
+    "theme_color": "#ffd700",
+    "orientation": "portrait-primary",
+    "scope": "/dual/",
+    "lang": "fr",
+    "categories": ["games", "strategy"],
+    "icons": [
+        {
+            "src": "/dual/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/dual/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Nouvelle partie",
+            "short_name": "Jouer",
+            "description": "Commencer une nouvelle partie",
+            "url": "/dual/?action=new-game",
+            "icons": [
+                {
+                    "src": "/dual/icon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Rejoindre une partie",
+            "short_name": "Rejoindre",
+            "description": "Rejoindre une partie existante",
+            "url": "/dual/?action=join-game",
+            "icons": [
+                {
+                    "src": "/dual/icon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/dual/screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/dual/screenshot-narrow.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    }
+}
