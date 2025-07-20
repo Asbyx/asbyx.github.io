@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duel d'Arcane</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffd700">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Duel Arcane">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen active">
+            <div class="menu-container">
+                <h1 class="game-title">Duel d'Arcane</h1>
+                <div class="menu-buttons">
+                    <button id="host-game" class="menu-btn">Héberger une partie</button>
+                    <button id="join-game" class="menu-btn">Rejoindre une partie</button>
+                    <button id="demo-btn" class="menu-btn">Mode Démo</button>
+                    <button id="rules-btn" class="menu-btn">Règles</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connection Screen -->
+        <div id="connection-screen" class="screen">
+            <div class="connection-container">
+                <h2>Connexion Bluetooth</h2>
+                <div id="connection-status" class="status">En attente de connexion...</div>
+                <div id="device-list" class="device-list"></div>
+                <button id="scan-devices" class="menu-btn">Scanner les appareils</button>
+                <button id="back-to-menu" class="menu-btn secondary">Retour au menu</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="player-info">
+                    <span id="player-name">Vous</span>
+                    <span id="player-hp">PV: 20</span>
+                </div>
+                <div class="game-status">
+                    <span id="game-phase">Phase: Attaque</span>
+                </div>
+                <div class="opponent-info">
+                    <span id="opponent-name">Adversaire</span>
+                    <span id="opponent-hp">PV: 20</span>
+                </div>
+            </div>
+
+            <div class="game-board">
+                <!-- Opponent's area -->
+                <div class="opponent-area">
+                    <div class="opponent-hand">
+                        <div class="hand-label">Main adverse</div>
+                        <div id="opponent-hand" class="hand-cards"></div>
+                    </div>
+                    <div class="battlefield">
+                        <div class="attack-slot">
+                            <div class="slot-label">Attaque</div>
+                            <div id="opponent-attack" class="card-slot"></div>
+                        </div>
+                        <div class="defense-slot">
+                            <div class="slot-label">Défense</div>
+                            <div id="opponent-defense" class="card-slot"></div>
+                        </div>
+                        <div class="artifact-slot">
+                            <div class="slot-label">Artefact</div>
+                            <div id="opponent-artifact" class="card-slot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player's area -->
+                <div class="player-area">
+                    <div class="battlefield">
+                        <div class="attack-slot">
+                            <div class="slot-label">Attaque</div>
+                            <div id="player-attack" class="card-slot"></div>
+                        </div>
+                        <div class="defense-slot">
+                            <div class="slot-label">Défense</div>
+                            <div id="player-defense" class="card-slot"></div>
+                        </div>
+                        <div class="artifact-slot">
+                            <div class="slot-label">Artefact</div>
+                            <div id="player-artifact" class="card-slot"></div>
+                        </div>
+                    </div>
+                    <div class="player-hand">
+                        <div class="hand-label">Votre main</div>
+                        <div id="player-hand" class="hand-cards"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="end-turn" class="control-btn">Fin de tour</button>
+                <button id="draw-card" class="control-btn">Piocher</button>
+                <button id="activate-artifact" class="control-btn">Activer artefact</button>
+            </div>
+        </div>
+
+        <!-- Rules Modal -->
+        <div id="rules-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Règles du Duel d'Arcane</h2>
+                <div class="rules-content">
+                    <h3>Objectif</h3>
+                    <p>Réduire les points de vie de votre adversaire à 0 en utilisant stratégiquement vos cartes.</p>
+                    
+                    <h3>Structure d'un tour</h3>
+                    <ul>
+                        <li>Poser une carte en attaque</li>
+                        <li>Poser une carte en défense (bloque 1 attaque)</li>
+                        <li>Piocher 1 carte</li>
+                        <li>Poser un artefact (activable au prochain tour)</li>
+                    </ul>
+
+                    <h3>Types de cartes</h3>
+                    <div class="card-types">
+                        <div class="card-type">
+                            <strong>2-5 (Attaque légère):</strong> Inflige la valeur en dégâts
+                        </div>
+                        <div class="card-type">
+                            <strong>6-10 (Sort tactique):</strong> Moitié en dégâts + effet spécial
+                        </div>
+                        <div class="card-type">
+                            <strong>Valet (Contre magique):</strong> Annule une attaque et renvoie 2 dégâts
+                        </div>
+                        <div class="card-type">
+                            <strong>Dame (Vol d'énergie):</strong> Détruit une défense et +1 PV
+                        </div>
+                        <div class="card-type">
+                            <strong>Roi (Barrière mentale):</strong> Ignore la prochaine attaque
+                        </div>
+                        <div class="card-type">
+                            <strong>As (Invocation chaotique):</strong> Pioche 2 cartes, joue une attaque gratuite
+                        </div>
+                    </div>
+
+                    <h3>Effets spéciaux des sorts tactiques</h3>
+                    <ul>
+                        <li><strong>6:</strong> Prochain sort = +2 dégâts</li>
+                        <li><strong>7:</strong> Pioche 1 carte</li>
+                        <li><strong>8:</strong> L'adversaire défausse une carte au hasard</li>
+                        <li><strong>9:</strong> Regarde la main adverse (1x par partie)</li>
+                        <li><strong>10:</strong> Rejoue un tour immédiatement</li>
+                    </ul>
+
+                    <h3>Artefacts cachés</h3>
+                    <ul>
+                        <li><strong>♠️ Pique:</strong> Bloque la prochaine attaque ET pioche 2 cartes</li>
+                        <li><strong>♥️ Cœur:</strong> Pose en défense et soigne 2 PV</li>
+                        <li><strong>♦️ Carreau:</strong> Joue instantanément un tour</li>
+                        <li><strong>♣️ Trèfle:</strong> L'adversaire défausse 1 et vous piochez 1</li>
+                    </ul>
+
+                    <h3>Équipement</h3>
+                    <p>Jouer un 2 en plus d'une attaque permet d'ignorer la défense.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    <script src="bluetooth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
